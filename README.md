@@ -1,2 +1,2 @@
-# famp_server
-Flight Aware Monitoring Platform server
+# airport_tower_server
+
