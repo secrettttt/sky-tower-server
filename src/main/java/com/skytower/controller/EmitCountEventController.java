@@ -1,13 +1,18 @@
 package com.skytower.controller;
 
+import com.skytower.dao.EventMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class EmitCountEventController{
+
+    @Autowired
+    private EventMapper eventMapper;
 
     @RequestMapping(value = "/emit/count_event", method = RequestMethod.POST)
     public String emitCountEvent(
@@ -18,16 +23,21 @@ public class EmitCountEventController{
             @RequestParam("uid") String uid,
             HttpServletResponse response
     ) {
+        int status = eventMapper.createCountEvent(event, type, time, pid, uid);
+
         JSONObject result = new JSONObject();
-        try{
-            result.put("err_no", 0);
-            result.put("err_message", "success");
-        }
-        catch(JSONException e) {
+        try {
+            if (status > 0) {
+                result.put("err_no", 0);
+                result.put("err_message", "success");
+            } else {
+                result.put("err_no", 1);
+                result.put("err_message", "error");
+            }
+        } catch (JSONException e) {
             return e.toString();
         }
-        System.out.println(event + type + time + pid + uid);
-        System.out.println(result.toString());
+
         response.addHeader("access-control-allow-origin", "*");
         return result.toString();
     }

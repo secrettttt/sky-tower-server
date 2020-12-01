@@ -8,6 +8,7 @@
 - SpringBoot最新版本2.4.0
     - https://start.spring.io/ （也可以直接用IDEA创建springboot项目）
 - MySQL 5.7.32
+- MyBaties 2.0.0
 
 ## 技术栈
 - Springboot
@@ -16,10 +17,10 @@
 
 ## 接口
 - sky-tower-jssdk
-    - http://localhost:8080/emit/action_event
-    - http://localhost:8080/emit/count_event
-    - http://localhost:8080/emit/req_event
-    - http://localhost:8080/emit/resp_event
+    - http://localhost:8765/emit/action_event
+    - http://localhost:8765/emit/count_event
+    - http://localhost:8765/emit/req_event
+    - http://localhost:8765/emit/resp_event
 - sky-tower-监控平台前端
     - 后续补充...
     
