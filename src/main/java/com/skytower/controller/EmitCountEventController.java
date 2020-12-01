@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class EmitCountEventController{
 
     @Autowired
-    private EventMapper eventService;
+    private EventMapper eventMapper;
 
     @RequestMapping(value = "/emit/count_event", method = RequestMethod.POST)
     public String emitCountEvent(
@@ -23,7 +23,7 @@ public class EmitCountEventController{
             @RequestParam("uid") String uid,
             HttpServletResponse response
     ) {
-        int status = eventService.createCountEvent(event, type, time, pid, uid);
+        int status = eventMapper.createCountEvent(event, type, time, pid, uid);
 
         JSONObject result = new JSONObject();
         try {

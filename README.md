@@ -8,6 +8,7 @@
 - SpringBoot最新版本2.4.0
     - https://start.spring.io/ （也可以直接用IDEA创建springboot项目）
 - MySQL 5.7.32
+- MyBaties 2.0.0
 
 ## 技术栈
 - Springboot
