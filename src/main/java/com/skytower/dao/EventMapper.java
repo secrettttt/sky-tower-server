@@ -1,5 +1,6 @@
 package com.skytower.dao;
 
+import com.skytower.entry.EventEntry;
 import org.apache.ibatis.annotations.*;
 
 
@@ -47,7 +48,7 @@ public interface EventMapper {
 //     PRIMARY KEY (`event_id`)
 
     @Insert({"insert into event_table(event, type, time, project_id, uid) " +
-            "values('${event}', '${type}', '${time}', '${pid}', '${uid}')"})
-    int createCountEvent(String event, String type, long time, String pid, String uid);
+            "values('${e.event}', '${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
+    int createCountEvent(@Param("e") EventEntry e);
 
 }

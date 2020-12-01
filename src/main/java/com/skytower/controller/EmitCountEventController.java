@@ -1,6 +1,7 @@
 package com.skytower.controller;
 
 import com.skytower.dao.EventMapper;
+import com.skytower.service.EventService;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class EmitCountEventController{
 
     @Autowired
-    private EventMapper eventMapper;
+    private EventService eventService;
 
     @RequestMapping(value = "/emit/count_event", method = RequestMethod.POST)
     public String emitCountEvent(
@@ -23,7 +24,7 @@ public class EmitCountEventController{
             @RequestParam("uid") String uid,
             HttpServletResponse response
     ) {
-        int status = eventMapper.createCountEvent(event, type, time, pid, uid);
+        int status = eventService.createCountEvent(event, type, time, pid, uid);
 
         JSONObject result = new JSONObject();
         try {
