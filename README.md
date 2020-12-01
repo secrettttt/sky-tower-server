@@ -16,10 +16,10 @@
 
 ## 接口
 - sky-tower-jssdk
-    - http://localhost:8080/emit/action_event
-    - http://localhost:8080/emit/count_event
-    - http://localhost:8080/emit/req_event
-    - http://localhost:8080/emit/resp_event
+    - http://localhost:8765/emit/action_event
+    - http://localhost:8765/emit/count_event
+    - http://localhost:8765/emit/req_event
+    - http://localhost:8765/emit/resp_event
 - sky-tower-监控平台前端
     - 后续补充...
     
