@@ -1,6 +1,5 @@
 package com.skytower.controller;
 
-import com.skytower.dao.EventMapper;
 import com.skytower.service.EventService;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,16 +23,25 @@ public class EmitCountEventController{
             @RequestParam("uid") String uid,
             HttpServletResponse response
     ) {
-        int status = eventService.createCountEvent(event, type, time, pid, uid);
 
         JSONObject result = new JSONObject();
+
         try {
-            if (status > 0) {
-                result.put("err_no", 0);
-                result.put("err_message", "success");
+
+            if (!type.equals("count")) {
+
+                result.put("status", "type is not count");
+
             } else {
-                result.put("err_no", 1);
-                result.put("err_message", "error");
+
+                int status = eventService.createCountEvent(event, type, time, pid, uid);
+
+                if (status > 0) {
+                    result.put("status", "success");
+                } else {
+                    result.put("status", "createCountEvent error");
+                }
+
             }
         } catch (JSONException e) {
             return e.toString();
