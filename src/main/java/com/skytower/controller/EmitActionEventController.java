@@ -1,13 +1,18 @@
 package com.skytower.controller;
 
+import com.skytower.service.EventService;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class EmitActionEventController{
+
+    @Autowired
+    private EventService eventService;
 
     @RequestMapping(value = "/emit/action_event", method = RequestMethod.POST)
     public String emitActionEvent(
@@ -26,18 +31,50 @@ public class EmitActionEventController{
             @RequestParam(value = "uid") String uid,
             HttpServletResponse response
     ) {
-        JSONObject result = new JSONObject();
-        try{
-            result.put("err_no", 0);
-            result.put("err_message", "success");
-        }
-        catch(JSONException e) {
+
+        JSONObject respData = new JSONObject();
+
+        try {
+
+            boolean isCorrectParams = true;
+
+            if (!type.equals("action")) {
+
+                respData.put("status", "type is not action");
+                isCorrectParams = false;
+            }
+
+            if (event.length() == 0) {
+
+                respData.put("status", "event is undefined");
+                isCorrectParams = false;
+            }
+
+            if (pid.length() == 0) {
+
+                respData.put("status", "pid is undefined");
+                isCorrectParams = false;
+            }
+
+            if (isCorrectParams) {
+
+                int status = eventService.createActionEvent(event, location, device_brand,
+                        app_version, system_version, client, net_type,
+                        ip_address, extra, type, time, pid, uid);
+
+                if (status > 0) {
+                    respData.put("status", "success");
+                } else {
+                    respData.put("status", "createActionEvent error");
+                }
+
+            }
+
+        } catch(JSONException e) {
             return e.toString();
         }
 
-        System.out.println(event + " | " + extra);
-        System.out.println(result.toString());
         response.addHeader("access-control-allow-origin", "*");
-        return result.toString();
+        return respData.toString();
     }
 }
