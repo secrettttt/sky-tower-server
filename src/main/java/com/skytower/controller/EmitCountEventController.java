@@ -24,22 +24,39 @@ public class EmitCountEventController{
             HttpServletResponse response
     ) {
 
-        JSONObject result = new JSONObject();
+        JSONObject respData = new JSONObject();
 
         try {
 
+            boolean isCorrectParams = true;
+
             if (!type.equals("count")) {
 
-                result.put("status", "type is not count");
+                respData.put("status", "type is not count");
+                isCorrectParams = false;
+            }
 
-            } else {
+            if (event.length() == 0) {
+
+                respData.put("status", "event is undefined");
+                isCorrectParams = false;
+            }
+
+            if (pid.length() == 0) {
+
+                respData.put("status", "pid is undefined");
+                isCorrectParams = false;
+            }
+
+
+            if (isCorrectParams) {
 
                 int status = eventService.createCountEvent(event, type, time, pid, uid);
 
                 if (status > 0) {
-                    result.put("status", "success");
+                    respData.put("status", "success");
                 } else {
-                    result.put("status", "createCountEvent error");
+                    respData.put("status", "createCountEvent error");
                 }
 
             }
@@ -48,7 +65,7 @@ public class EmitCountEventController{
         }
 
         response.addHeader("access-control-allow-origin", "*");
-        return result.toString();
+        return respData.toString();
     }
 }
 

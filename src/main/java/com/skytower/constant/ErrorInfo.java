@@ -15,8 +15,20 @@ public class ErrorInfo {
         errNoMap.put("createCountEvent error", 501);
         errMessageMap.put("createCountEvent error", "createCountEvent error");
 
+        errNoMap.put("createActionEvent error", 502);
+        errMessageMap.put("createActionEvent error", "createActionEvent error");
+
         errNoMap.put("type is not count", 401);
         errMessageMap.put("type is not count", "error! emit count event but type is not count.");
+
+        errNoMap.put("type is not action", 402);
+        errMessageMap.put("type is not action", "error! emit action event but type is not action.");
+
+        errNoMap.put("event is undefined", 403);
+        errMessageMap.put("event is undefined", "event is undefined.");
+
+        errNoMap.put("pid is undefined", 405);
+        errMessageMap.put("pid is undefined", "pid is undefined.");
 
     }
 

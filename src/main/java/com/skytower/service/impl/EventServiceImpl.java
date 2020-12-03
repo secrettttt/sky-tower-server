@@ -23,4 +23,25 @@ public class EventServiceImpl implements EventService {
         return eventMapper.createCountEvent(e);
     }
 
+    @Override
+    public int createActionEvent(String event, String location, String device_brand,
+                          String app_version, String system_version, String client, String net_type,
+                          String ip_address, String extra, String type, long time, String pid, String uid) {
+        EventEntry e = new EventEntry();
+        e.setEvent(event);
+        e.setLocation(location);
+        e.setDeviceBrand(device_brand);
+        e.setAppVersion(app_version);
+        e.setSystemVersion(system_version);
+        e.setClient(client);
+        e.setNetType(net_type);
+        e.setIpAddress(ip_address);
+        e.setExtra(extra);
+        e.setType(type);
+        e.setTime(time);
+        e.setProjectId(pid);
+        e.setUid(uid);
+        return eventMapper.createActionEvent(e);
+    }
+
 }

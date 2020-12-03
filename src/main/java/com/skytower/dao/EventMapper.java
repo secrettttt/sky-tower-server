@@ -51,4 +51,12 @@ public interface EventMapper {
             "values('${e.event}', '${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
     int createCountEvent(@Param("e") EventEntry e);
 
+    @Insert({"insert into event_table(event, location, device_brand," +
+            " app_version, system_version, client, net_type, ip_address," +
+            " extra, type, time, project_id, uid) " +
+            "values('${e.event}', '${e.location}', '${e.deviceBrand}'," +
+            "'${e.appVersion}', '${e.systemVersion}', '${e.client}', '${e.netType}', '${e.ipAddress}'," +
+            "'${e.extra}', '${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
+    int createActionEvent(@Param("e") EventEntry e);
+
 }
