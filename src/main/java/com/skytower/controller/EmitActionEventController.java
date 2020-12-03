@@ -44,13 +44,13 @@ public class EmitActionEventController{
                 isCorrectParams = false;
             }
 
-            if (event.length() == 0) {
+            if (isCorrectParams && event.length() == 0) {
 
                 respData.put("status", "event is undefined");
                 isCorrectParams = false;
             }
 
-            if (pid.length() == 0) {
+            if (isCorrectParams && pid.length() == 0) {
 
                 respData.put("status", "pid is undefined");
                 isCorrectParams = false;
