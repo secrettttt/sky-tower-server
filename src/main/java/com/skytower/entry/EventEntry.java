@@ -24,5 +24,5 @@ public class EventEntry {
     private String query;
     private String requestBody;
     private String resp;
-    private String isSuccess;
+    private Boolean isSuccess;
 }

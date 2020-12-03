@@ -18,6 +18,12 @@ public class ErrorInfo {
         errNoMap.put("createActionEvent error", 502);
         errMessageMap.put("createActionEvent error", "createActionEvent error");
 
+        errNoMap.put("createReqEvent error", 503);
+        errMessageMap.put("createReqEvent error", "createReqEvent error");
+
+        errNoMap.put("createRespEvent error", 504);
+        errMessageMap.put("createRespEvent error", "createRespEvent error");
+
         errNoMap.put("type is not count", 401);
         errMessageMap.put("type is not count", "error! emit count event but type is not count.");
 
@@ -29,6 +35,18 @@ public class ErrorInfo {
 
         errNoMap.put("pid is undefined", 405);
         errMessageMap.put("pid is undefined", "pid is undefined.");
+
+        errNoMap.put("type is not req", 406);
+        errMessageMap.put("type is not req", "error! emit req event but type is not req.");
+
+        errNoMap.put("api is undefined", 407);
+        errMessageMap.put("api is undefined", "api is undefined.");
+
+        errNoMap.put("type is not resp", 408);
+        errMessageMap.put("type is not resp", "error! emit resp event but type is not resp.");
+
+        errNoMap.put("isSuccess and isError are false", 409);
+        errMessageMap.put("isSuccess and isError are false", " params is_success and is_error are false.");
 
     }
 

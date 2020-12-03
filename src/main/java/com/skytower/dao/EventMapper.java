@@ -59,4 +59,14 @@ public interface EventMapper {
             "'${e.extra}', '${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
     int createActionEvent(@Param("e") EventEntry e);
 
+    @Insert({"insert into event_table(event, api, query, request_body, type, time, project_id, uid) " +
+            "values('send_http_req', '${e.api}', '${e.query}', '${e.requestBody}', " +
+            "'${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
+    int createReqEvent(@Param("e") EventEntry e);
+
+    @Insert({"insert into event_table(event, api, is_success, resp, type, time, project_id, uid) " +
+            "values('receive_http_resp', '${e.api}', '${e.isSuccess}', '${e.resp}', " +
+            "'${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
+    int createRespEvent(@Param("e") EventEntry e);
+
 }

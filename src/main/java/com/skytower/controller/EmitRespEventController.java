@@ -1,13 +1,18 @@
 package com.skytower.controller;
 
+import com.skytower.service.EventService;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class EmitRespEventController{
+
+    @Autowired
+    private EventService eventService;
 
     @RequestMapping(value = "/emit/resp_event", method = RequestMethod.POST)
     public String emitRespEvent(
@@ -21,18 +26,56 @@ public class EmitRespEventController{
             @RequestParam(value = "uid") String uid,
             HttpServletResponse response
     ) {
-        JSONObject result = new JSONObject();
+
+        JSONObject respData = new JSONObject();
+
         try{
-            result.put("err_no", 0);
-            result.put("err_message", "success");
+
+
+            boolean isCorrectParams = true;
+
+            if (!type.equals("resp")) {
+
+                respData.put("status", "type is not resp");
+                isCorrectParams = false;
+            }
+
+            if (isCorrectParams && api.length() == 0) {
+
+                respData.put("status", "api is undefined");
+                isCorrectParams = false;
+            }
+
+            if (isCorrectParams && pid.length() == 0) {
+
+                respData.put("status", "pid is undefined");
+                isCorrectParams = false;
+            }
+
+            if (isCorrectParams && !isSuccess && !isError ) {
+
+                respData.put("status", "isSuccess and isError are false");
+                isCorrectParams = false;
+            }
+
+            if (isCorrectParams) {
+
+                int status = eventService.createRespEvent(api, isSuccess, resp,
+                        type, time, pid, uid);
+
+                if (status > 0) {
+                    respData.put("status", "success");
+                } else {
+                    respData.put("status", "createRespEvent error");
+                }
+
+            }
         }
         catch(JSONException e) {
             return e.toString();
         }
 
-        System.out.println(api + " | " + resp + isError + isSuccess);
-        System.out.println(result.toString());
         response.addHeader("access-control-allow-origin", "*");
-        return result.toString();
+        return respData.toString();
     }
 }

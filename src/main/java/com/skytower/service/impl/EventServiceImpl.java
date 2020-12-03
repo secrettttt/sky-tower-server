@@ -44,4 +44,34 @@ public class EventServiceImpl implements EventService {
         return eventMapper.createActionEvent(e);
     }
 
+    @Override
+    public int createReqEvent(String api, String query, String request_body,
+                       String type, long time, String pid, String uid) {
+
+        EventEntry e = new EventEntry();
+        e.setApi(api);
+        e.setQuery(query);
+        e.setRequestBody(request_body);
+        e.setType(type);
+        e.setTime(time);
+        e.setProjectId(pid);
+        e.setUid(uid);
+        return eventMapper.createReqEvent(e);
+    }
+
+    @Override
+    public int createRespEvent(String api, Boolean isSuccess, String resp,
+                               String type, long time, String pid, String uid) {
+
+        EventEntry e = new EventEntry();
+        e.setApi(api);
+        e.setIsSuccess(isSuccess);
+        e.setResp(resp);
+        e.setType(type);
+        e.setTime(time);
+        e.setProjectId(pid);
+        e.setUid(uid);
+        return eventMapper.createRespEvent(e);
+    }
+
 }
