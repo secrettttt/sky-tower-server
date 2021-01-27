@@ -48,6 +48,11 @@ public class ErrorInfo {
         errNoMap.put("isSuccess and isError are false", 409);
         errMessageMap.put("isSuccess and isError are false", " params is_success and is_error are false.");
 
+        errNoMap.put("username or password is empty", 40001);
+        errMessageMap.put("username or password is empty", "username or password is empty.");
+
+        errNoMap.put("username or password error", 40001);
+        errMessageMap.put("username or password error", "username or password error.");
     }
 
     public static int getErrNo(String key) {
