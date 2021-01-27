@@ -27,6 +27,7 @@ public class CheckPermissionController {
     public String checkPermission(
             @RequestParam(value = "username", required = false, defaultValue = "") String username,
             @RequestParam(value = "password", required = false, defaultValue = "") String password,
+            @RequestParam(value = "is_login_in", required = false, defaultValue = "false") Boolean isLoginIn,
             HttpServletRequest request,
             HttpServletResponse response
     ) {
@@ -35,8 +36,8 @@ public class CheckPermissionController {
 
         try {
 
-            if (username.length() == 0 && password.length() == 0) {
-                // 拦截器未拦截请求，checkPermission接口返回success
+            if (!isLoginIn) {
+                // 判断用户的登陆状态时，拦截器未拦截请求，checkPermission接口返回success
                 respData.put("status", "success");
             } else {
                 // 用户登陆，需要判断用户填写的用户名和密码是否正确
@@ -46,6 +47,7 @@ public class CheckPermissionController {
                     if (result.get(0).getUser_id().equals("")) {
                         respData.put("status", "username or password is empty");
                     } else {
+                        respData.put("user_id", result.get(0).getUser_id());
                         respData.put("token", generateToken(result.get(0).getUsername()));
                         respData.put("status", "success");
                     }

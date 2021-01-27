@@ -19,14 +19,15 @@ public class JwtHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getParameter("token");
+        String is_login_in = request.getParameter("is_login_in");
 
-        if (token != null) {
-            // token为null, 不拦截, 此时checkPermission为登陆接口
-            // token不为null, 需要拦截, 此时通过解析token来判断用户的登陆状态
+        if (!Boolean.parseBoolean(is_login_in)) {
+            // is_login_in为true, 不拦截, 此时checkPermission为登陆接口
+            // is_login_in为false, 需要拦截, 此时通过解析token来判断用户的登陆状态
             JSONObject res = JwtUtil.parseToken(token);
 
             // 如果校验成功返回true
-            if(res.getString("status") == "success") {
+            if(res.getString("status") == "200") {
                 return true;
             } else {
                 // 校验失败，返回错误信息
