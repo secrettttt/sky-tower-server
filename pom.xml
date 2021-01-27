@@ -59,6 +59,13 @@
             <version>2.0.0</version>
         </dependency>
 
+        <!--JWT依赖-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
         <!--热部署依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -30,7 +30,6 @@ public class HttpResponseBodyAdvice implements ResponseBodyAdvice<String> {
             JSONObject data = new JSONObject(body);
 
             String status = data.get("status").toString();
-
             resp.put("err_no", ErrorInfo.getErrNo(status));
             resp.put("err_message", ErrorInfo.getErrMessage(status));
 

@@ -29,6 +29,8 @@
 ```sql
 create DATABASE EVENT_DATABASE;
 
+use EVENT_DATABASE;
+
 CREATE TABLE event_table (
     `event_id` INT NOT NULL AUTO_INCREMENT,
     `event` VARCHAR(25) NOT NULL,
@@ -53,7 +55,25 @@ CREATE TABLE event_table (
 );  
 
 
-INSERT  INTO `event_table`(`event_id`,`event`,`project_id`,`uid`,`type`) VALUES (10001,'image_upload','5612300','897889789','count');  
+INSERT INTO `event_table`(`event_id`,`event`,`project_id`,`uid`,`type`) VALUES (10001,'image_upload','5612300','897889789','count');  
+
+use user_table;
+
+CREATE TABLE user_table (
+    `user_id` INT NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(25) NOT NULL,
+    `avatar` VARCHAR(1000),
+    `password` VARCHAR(25) NOT NULL,
+    `phone_number` VARCHAR(25) NOT NULL,
+    `email` VARCHAR(25) NOT NULL,
+    `user_create_time`BIGINT NOT NULL,
+    PRIMARY KEY (`user_id`)
+);  
+
+alter table user_table convert to character set utf8;
+
+INSERT INTO `user_table`(`user_id`,`username`,`password`,`phone_number`,`email`, `user_create_time`) VALUES (10088888,
+'skytower测试账号','88888888','897889789','test@skytower.com', 1611562074950);
 ```
 
 
