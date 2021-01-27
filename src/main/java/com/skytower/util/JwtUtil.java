@@ -34,20 +34,26 @@ public class JwtUtil {
 
         try {
             try {
-                Jwts.parser()
-                        .setSigningKey(jwtSecret)
-                        .parseClaimsJws(token)
-                        .getBody();
 
-                respData.put("status", "success");
-                respData.put("tokenStatus", "token校验成功");
+                if (token != null && token != "") {
+                    Jwts.parser()
+                            .setSigningKey(jwtSecret)
+                            .parseClaimsJws(token)
+                            .getBody();
+
+                    respData.put("status", "200");
+                    respData.put("tokenStatus", "token校验成功");
+                } else {
+                    respData.put("status", "40002");
+                    respData.put("tokenStatus", "token为空");
+                }
                 return respData;
             } catch (ExpiredJwtException e) {
-                respData.put("status", "success");
+                respData.put("status", "40000");
                 respData.put("tokenStatus", "token已过期");
                 return respData;
             } catch (JwtException e) {
-                respData.put("status", "success");
+                respData.put("status", "40001");
                 respData.put("tokenStatus", "token解析失败");
                 return respData;
             }
