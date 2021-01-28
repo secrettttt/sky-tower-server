@@ -3,7 +3,6 @@ package com.skytower.service.impl;
 import com.skytower.dao.UserMapper;
 import com.skytower.entry.UserEntry;
 import com.skytower.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
