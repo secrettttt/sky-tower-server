@@ -31,4 +31,28 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public int createNewUser(String username, String password, String email,
+                      String phone_number, long user_create_time) {
+        UserEntry e = new UserEntry();
+        e.setUsername(username);
+        e.setPassword(password);
+        e.setEmail(email);
+        e.setPhone_number(phone_number);
+        e.setUser_create_time(user_create_time);
+        return userMapper.createNewUser(e);
+    }
+
+    @Override
+    public int updateUserInfo(String user_id, String username, String password,
+                                  String email, String phone_number) {
+        UserEntry e = new UserEntry();
+        e.setUser_id(user_id);
+        e.setUsername(username);
+        e.setPassword(password);
+        e.setEmail(email);
+        e.setPhone_number(phone_number);
+        return userMapper.updateUserInfo(e);
+    }
 }

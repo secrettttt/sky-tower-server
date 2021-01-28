@@ -14,4 +14,12 @@ public interface UserMapper {
 
     @Select("select * from user_table where user_id = #{user_id}")
     List<UserEntry> isUserExist(@Param("user_id") String user_id);
+
+    @Insert({"insert into user_table(username, password, email, phone_number, user_create_time) " +
+            "values('${e.username}', '${e.password}', '${e.email}', '${e.phone_number}', '${e.user_create_time}')"})
+    int createNewUser(@Param("e") UserEntry e);
+
+    @Update("update user_table set username=#{e.username}, password=#{e.password}, email=#{e.email}," +
+            "phone_number=#{e.phone_number} where user_id=#{e.user_id}")
+    int updateUserInfo(@Param("e") UserEntry e);
 }

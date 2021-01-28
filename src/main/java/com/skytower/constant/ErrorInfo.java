@@ -62,6 +62,12 @@ public class ErrorInfo {
 
         errNoMap.put("createFeedback error", 501);
         errMessageMap.put("createFeedback error", "createFeedback error.");
+
+        errNoMap.put("createNewUser error", 501);
+        errMessageMap.put("createNewUser error", "createNewUser error.");
+
+        errNoMap.put("updateUserInfo error", 501);
+        errMessageMap.put("updateUserInfo error", "updateUserInfo error.");
     }
 
     public static int getErrNo(String key) {

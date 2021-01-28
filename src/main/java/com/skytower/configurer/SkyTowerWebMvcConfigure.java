@@ -13,6 +13,8 @@ public class SkyTowerWebMvcConfigure implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 // 排除不需要token校验的接口，path一定要完全匹配，否则会被拦截
                 .excludePathPatterns("/report_feedback")
+                .excludePathPatterns("/create/new_user")
+                .excludePathPatterns("/update/user_info")
                 .excludePathPatterns("/emit/action_event")
                 .excludePathPatterns("/emit/count_event")
                 .excludePathPatterns("/emit/req_event")
