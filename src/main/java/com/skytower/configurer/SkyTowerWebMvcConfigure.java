@@ -11,12 +11,11 @@ public class SkyTowerWebMvcConfigure implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new JwtHandlerInterceptor())
                 .addPathPatterns("/**")
-                // 排除不需要token校验的接口
-                .excludePathPatterns(
-                    "/emit/action_event",
-                    "/emit/count_event",
-                    "/emit/req_event",
-                    "/emit/resp_event"
-                );
+                // 排除不需要token校验的接口，path一定要完全匹配，否则会被拦截
+                .excludePathPatterns("/report_feedback")
+                .excludePathPatterns("/emit/action_event")
+                .excludePathPatterns("/emit/count_event")
+                .excludePathPatterns("/emit/req_event")
+                .excludePathPatterns("/emit/resp_event");
     }
 }

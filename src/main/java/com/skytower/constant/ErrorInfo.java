@@ -53,6 +53,15 @@ public class ErrorInfo {
 
         errNoMap.put("username or password error", 40001);
         errMessageMap.put("username or password error", "username or password error.");
+
+        errNoMap.put("feedback rate is error", 401);
+        errMessageMap.put("feedback rate is error", "feedback rate is error.");
+
+        errNoMap.put("user_id not exist", 402);
+        errMessageMap.put("user_id not exist", "user_id not exist.");
+
+        errNoMap.put("createFeedback error", 501);
+        errMessageMap.put("createFeedback error", "createFeedback error.");
     }
 
     public static int getErrNo(String key) {

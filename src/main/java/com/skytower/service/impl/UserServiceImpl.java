@@ -21,4 +21,14 @@ public class UserServiceImpl implements UserService {
         e.setPassword(password);
         return userMapper.checkPermission(e);
     }
+
+    @Override
+    public boolean isUserExist(String user_id) {
+        List<UserEntry> res = userMapper.isUserExist(user_id);
+
+        if(res.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

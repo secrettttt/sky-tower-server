@@ -8,4 +8,5 @@ public interface UserService {
 
     List<UserEntry> checkPermission(String username, String password);
 
+    boolean isUserExist(String user_id);
 }

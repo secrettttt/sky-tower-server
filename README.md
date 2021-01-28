@@ -27,6 +27,7 @@
     
 ## 已创建的数据库、表、MOCK数据
 ```sql
+// 事件表
 create DATABASE EVENT_DATABASE;
 
 use EVENT_DATABASE;
@@ -58,6 +59,7 @@ alter table EVENT_DATABASE.event_table convert to character set utf8;
 
 INSERT INTO `event_table`(`event_id`,`event`,`project_id`,`uid`,`type`) VALUES (10001,'image_upload','5612300','897889789','count');  
 
+// 用户表
 CREATE TABLE user_table (
     `user_id` INT NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(25) NOT NULL,
@@ -75,6 +77,25 @@ alter table user_table convert to character set utf8;
 
 INSERT INTO `user_table`(`user_id`,`username`,`password`,`phone_number`,`email`, `user_create_time`) VALUES (10088888,
 'skytower测试账号','88888888','897889789','test@skytower.com', 1611562074950);
+
+//【优化】event表和user表的主键类型改为bigint需求： https://y5cu4pfrwh.feishu.cn/docs/doccndKWQzm0OHrx5W2LwMFrmTh
+alter table event_table modify event_id INT UNSIGNED NOT NULL AUTO_INCREMENT;
+alter table user_table modify user_id INT UNSIGNED NOT NULL AUTO_INCREMENT;
+
+// 反馈信息表
+CREATE TABLE feedback_table (
+    `feedback_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `user_id` VARCHAR(25),
+    `feedback_rate` VARCHAR(5),
+    `feedback_time` BIGINT NOT NULL,
+    `feedback_content` VARCHAR(500) NOT NULL,
+    PRIMARY KEY (`feedback_id`)
+);  
+
+alter table feedback_table convert to character set utf8;
+
+INSERT INTO `feedback_table`(`feedback_id`,`user_id`,`feedback_rate`,`feedback_time`,`feedback_content`) VALUES (1001,
+'10008800', '5', 1611562074950, '请问在哪里可以看到发出去的用户反馈呢？');
 ```
 
 
