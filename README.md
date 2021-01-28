@@ -57,8 +57,6 @@ CREATE TABLE event_table (
 
 INSERT INTO `event_table`(`event_id`,`event`,`project_id`,`uid`,`type`) VALUES (10001,'image_upload','5612300','897889789','count');  
 
-use user_table;
-
 CREATE TABLE user_table (
     `user_id` INT NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(25) NOT NULL,
@@ -69,6 +67,8 @@ CREATE TABLE user_table (
     `user_create_time`BIGINT NOT NULL,
     PRIMARY KEY (`user_id`)
 );  
+
+use user_table;
 
 alter table user_table convert to character set utf8;
 
