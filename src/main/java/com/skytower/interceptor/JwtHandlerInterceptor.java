@@ -24,7 +24,9 @@ public class JwtHandlerInterceptor implements HandlerInterceptor {
 
         if (!Boolean.parseBoolean(is_login_in)) {
             // is_login_in为true, 不拦截, 此时checkPermission为登陆接口
-            // is_login_in为false, 需要拦截, 此时通过解析token来判断用户的登陆状态
+
+            // is_login_in为默认值false, 需要拦截,
+            // 此时不一定是checkPermission接口请求，需要通过解析token来判断用户的登陆状态
             JSONObject res = JwtUtil.parseToken(token);
 
             // 如果校验成功返回true
