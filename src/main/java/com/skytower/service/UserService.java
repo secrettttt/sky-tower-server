@@ -12,4 +12,7 @@ public interface UserService {
 
     int createNewUser(String username, String password, String email,
                       String phone_number, long user_create_time);
+
+    int updateUserInfo(String user_id, String username, String password,
+                   String email, String phone_number);
 }

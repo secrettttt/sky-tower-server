@@ -15,33 +15,32 @@ import javax.servlet.http.HttpServletResponse;
 import static com.skytower.util.AccessControlAllowOrigin.checkOriginWhiteList;
 
 @RestController
-public class CreateUserController {
+public class UpdateUserInfoController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/create/new_user", method = RequestMethod.POST)
-    public String createNewUser(
+    @RequestMapping(value = "/update/user_info", method = RequestMethod.POST)
+    public String updateUserInfo(
+            @RequestParam("user_id") String user_id,
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             @RequestParam("email") String email,
             @RequestParam("phone_number") String phone_number,
-            @RequestParam("user_create_time") long user_create_time,
             HttpServletRequest request,
             HttpServletResponse response
     ) {
-
         JSONObject respData = new JSONObject();
 
         try {
 
-            int status = userService.createNewUser(username, password,
-                    email, phone_number, user_create_time);
+            int status = userService.updateUserInfo(user_id, username, password,
+                    email, phone_number);
 
             if (status > 0) {
                 respData.put("status", "success");
             } else {
-                respData.put("status", "createNewUser error");
+                respData.put("status", "updateUserInfo error");
             }
 
 
