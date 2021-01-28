@@ -54,6 +54,7 @@ CREATE TABLE event_table (
     PRIMARY KEY (`event_id`)
 );  
 
+alter table EVENT_DATABASE.event_table convert to character set utf8;
 
 INSERT INTO `event_table`(`event_id`,`event`,`project_id`,`uid`,`type`) VALUES (10001,'image_upload','5612300','897889789','count');  
 
