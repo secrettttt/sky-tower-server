@@ -10,7 +10,7 @@ public class ProjectEntry {
     private String project_name;
     private String description;
     private String url_online;
-    private boolean is_monitoring;
+    private int is_monitoring;
     private long create_time;
     private String user_id;
 }

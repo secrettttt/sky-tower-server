@@ -72,8 +72,14 @@ public class ErrorInfo {
         errNoMap.put("user does not exist", 404);
         errMessageMap.put("user does not exist", "user does not exist.");
 
-        errNoMap.put("username does exist", 405);
-        errMessageMap.put("username does exist", "username does exist.");
+        errNoMap.put("username does not exist", 405);
+        errMessageMap.put("username does not exist", "username does not exist.");
+
+        errNoMap.put("createNewProject error", 501);
+        errMessageMap.put("createNewProject error", "createNewProject error.");
+
+        errNoMap.put("invalid argument", 401);
+        errMessageMap.put("invalid argument", "invalid argument.");
     }
 
     public static int getErrNo(String key) {

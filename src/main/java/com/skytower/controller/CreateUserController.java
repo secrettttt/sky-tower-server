@@ -36,7 +36,7 @@ public class CreateUserController {
         try {
             boolean isUserNameExist = userService.isUserNameExist(username);
             if (isUserNameExist) {
-                respData.put("status", "username does exist");
+                respData.put("status", "username does not exist");
             } else {
 
                 int status = userService.createNewUser(username, password,
