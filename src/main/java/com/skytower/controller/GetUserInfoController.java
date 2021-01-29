@@ -2,6 +2,7 @@ package com.skytower.controller;
 
 import com.skytower.entry.UserEntry;
 import com.skytower.service.UserService;
+import org.apache.catalina.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,45 +13,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.util.List;
 
 import static com.skytower.util.AccessControlAllowOrigin.checkOriginWhiteList;
+import static com.skytower.util.JwtUtil.generateToken;
 
 @RestController
-public class UpdateUserInfoController {
+public class GetUserInfoController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/update/user_info", method = RequestMethod.POST)
-    public String updateUserInfo(
-            @RequestParam("user_id") String user_id,
-            @RequestParam("username") String username,
-            @RequestParam("password") String password,
-            @RequestParam("email") String email,
-            @RequestParam("phone_number") String phone_number,
+    @RequestMapping(value = "/get/user_info", method = RequestMethod.GET)
+    public String getUserInfo (
+            @RequestParam(value = "user_id") String user_id,
             HttpServletRequest request,
             HttpServletResponse response
     ) {
+
         JSONObject respData = new JSONObject();
 
         try {
+
             List<UserEntry> result = userService.getUserInfo(user_id);
 
-            if (!username.equals(result.get(0).getUsername()) && userService.isUserNameExist(username)) {
-                // 用户修改了用户名，并且修改后的用户名在user_table中已存在
-
-                respData.put("status", "username does exist");
+            if (result.size() != 0) {
+                respData.put("user_id", result.get(0).getUser_id());
+                respData.put("username", result.get(0).getUsername());
+                respData.put("email", result.get(0).getEmail());
+                respData.put("phone_number", result.get(0).getPhone_number());
+                respData.put("avatar", result.get(0).getAvatar());
+                respData.put("status", "success");
             } else {
-                int status = userService.updateUserInfo(user_id, username, password,
-                        email, phone_number);
-
-                if (status > 0) {
-                    respData.put("status", "success");
-                } else {
-                    respData.put("status", "updateUserInfo error");
-                }
+                respData.put("status", "user does not exist");
             }
         } catch (JSONException e) {
             return e.toString();
