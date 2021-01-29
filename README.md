@@ -18,16 +18,17 @@
 
 ## 接口
 - sky-tower-jssdk
-    - 发射用户行为信号：http://101.200.197.197:8765/emit/action_event
-    - 发射技术信号：http://101.200.197.197:8765/emit/count_event
-    - 上报请求数据：http://101.200.197.197:8765/emit/req_event
-    - 上报响应数据：http://101.200.197.197:8765/emit/resp_event
+    - 发射用户行为信号：http://localhost:8765/emit/action_event
+    - 发射技术信号：http://localhost:8765/emit/count_event
+    - 上报请求数据：http://localhost:8765/emit/req_event
+    - 上报响应数据：http://localhost:8765/emit/resp_event
 - sky-tower-监控平台前端
-    - 用户登陆、判断用户的登陆状态：http://101.200.197.197:8765/check_permission
-    - 用户注册：http://101.200.197.197:8765//create/new_user
-    - 获取用户信息：http://101.200.197.197:8765//get/user_info
-    - 更改用户信息：http://101.200.197.197:8765//update/user_info
-    - 提交体验反馈：http://101.200.197.197:8765//report_feedback
+    - 用户登陆、判断用户的登陆状态：http://localhost:8765/check_permission
+    - 用户注册：http://localhost:8765/create/new_user
+    - 获取用户信息：http://localhost:8765/get/user_info
+    - 更改用户信息：http://localhost:8765/update/user_info
+    - 提交体验反馈：http://localhost:8765/report_feedback
+    - 获取用户的项目列表：http://localhost:8765/get/user_list
     - 其他接口开发中...（上线后补充）
     
 ## 已创建的数据库、表、MOCK数据
@@ -121,7 +122,4 @@ alter table project_table convert to character set utf8;
 
 INSERT INTO `project_table`(`project_id`,`project_name`,`description`,`url_online`,`is_monitoring`, `create_time`, `user_id`) VALUES (100111, 'cat的个人博客', 'cat的个人心情随笔', 'https://www.hahaha123456.com', 1, 1611562074950, '10008800');
 ```
-
-
-
 

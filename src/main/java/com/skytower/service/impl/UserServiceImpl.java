@@ -1,6 +1,8 @@
 package com.skytower.service.impl;
 
+import com.skytower.dao.ProjectMapper;
 import com.skytower.dao.UserMapper;
+import com.skytower.entry.ProjectEntry;
 import com.skytower.entry.UserEntry;
 import com.skytower.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired(required = false)
     protected UserMapper userMapper;
+
+    @Autowired(required = false)
+    protected ProjectMapper projectMapper;
 
     @Override
     public List<UserEntry> checkPermission(String username, String password) {
@@ -67,5 +72,10 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<ProjectEntry> getUserList(String user_id) {
+        return projectMapper.getUserList(user_id);
     }
 }
