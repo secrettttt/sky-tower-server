@@ -68,6 +68,12 @@ public class ErrorInfo {
 
         errNoMap.put("updateUserInfo error", 501);
         errMessageMap.put("updateUserInfo error", "updateUserInfo error.");
+
+        errNoMap.put("user does not exist", 404);
+        errMessageMap.put("user does not exist", "user does not exist.");
+
+        errNoMap.put("username does exist", 405);
+        errMessageMap.put("username does exist", "username does exist.");
     }
 
     public static int getErrNo(String key) {

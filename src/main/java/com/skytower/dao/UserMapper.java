@@ -22,4 +22,10 @@ public interface UserMapper {
     @Update("update user_table set username=#{e.username}, password=#{e.password}, email=#{e.email}," +
             "phone_number=#{e.phone_number} where user_id=#{e.user_id}")
     int updateUserInfo(@Param("e") UserEntry e);
+
+    @Select("select * from user_table where user_id = #{user_id}")
+    List<UserEntry> getUserInfo(@Param("user_id") String user_id);
+
+    @Select("select * from user_table where username = #{username}")
+    List<UserEntry> getUserInfoByUsername(@Param("username") String username);
 }

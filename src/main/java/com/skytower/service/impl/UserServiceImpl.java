@@ -55,4 +55,17 @@ public class UserServiceImpl implements UserService {
         e.setPhone_number(phone_number);
         return userMapper.updateUserInfo(e);
     }
+
+    @Override
+    public List<UserEntry> getUserInfo(String user_id) {
+        return userMapper.getUserInfo(user_id);
+    }
+
+    @Override
+    public boolean isUserNameExist(String username) {
+        if (userMapper.getUserInfoByUsername(username).size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -34,17 +34,20 @@ public class CreateUserController {
         JSONObject respData = new JSONObject();
 
         try {
-
-            int status = userService.createNewUser(username, password,
-                    email, phone_number, user_create_time);
-
-            if (status > 0) {
-                respData.put("status", "success");
+            boolean isUserNameExist = userService.isUserNameExist(username);
+            if (isUserNameExist) {
+                respData.put("status", "username does exist");
             } else {
-                respData.put("status", "createNewUser error");
+
+                int status = userService.createNewUser(username, password,
+                        email, phone_number, user_create_time);
+
+                if (status > 0) {
+                    respData.put("status", "success");
+                } else {
+                    respData.put("status", "createNewUser error");
+                }
             }
-
-
         } catch (JSONException e) {
             return e.toString();
         }
