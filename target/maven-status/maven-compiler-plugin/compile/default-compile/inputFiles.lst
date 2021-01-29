@@ -10,6 +10,7 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/UserService.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/EventService.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/CheckPermissionController.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserInfoController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/FeedbackService.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitCountEventController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/advice/HttpResponseBodyAdvice.java
