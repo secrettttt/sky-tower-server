@@ -41,7 +41,7 @@ public class UpdateUserInfoController {
             if (!username.equals(result.get(0).getUsername()) && userService.isUserNameExist(username)) {
                 // 用户修改了用户名，并且修改后的用户名在user_table中已存在
 
-                respData.put("status", "username does exist");
+                respData.put("status", "username does not exist");
             } else {
                 int status = userService.updateUserInfo(user_id, username, password,
                         email, phone_number);

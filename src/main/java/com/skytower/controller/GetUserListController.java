@@ -50,7 +50,7 @@ public class GetUserListController {
                     respListItem.put("project_name", result.get(i).getProject_name());
                     respListItem.put("description", result.get(i).getDescription());
                     respListItem.put("url_online", result.get(i).getUrl_online());
-                    respListItem.put("is_monitoring", result.get(i).is_monitoring());
+                    respListItem.put("is_monitoring", result.get(i).getIs_monitoring());
                     respListItem.put("create_time", result.get(i).getCreate_time());
                     respListItem.put("user_id", result.get(i).getUser_id());
                     respList.put(respListItem);
