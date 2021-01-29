@@ -2,7 +2,6 @@ package com.skytower.controller;
 
 import com.skytower.entry.UserEntry;
 import com.skytower.service.UserService;
-import org.apache.catalina.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 import static com.skytower.util.AccessControlAllowOrigin.checkOriginWhiteList;
-import static com.skytower.util.JwtUtil.generateToken;
 
 @RestController
 public class GetUserInfoController {

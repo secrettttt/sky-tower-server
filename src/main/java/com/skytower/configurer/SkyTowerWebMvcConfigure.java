@@ -16,6 +16,7 @@ public class SkyTowerWebMvcConfigure implements WebMvcConfigurer {
                 .excludePathPatterns("/create/new_user")
                 .excludePathPatterns("/update/user_info")
                 .excludePathPatterns("/get/user_info")
+                .excludePathPatterns("/get/user_list")
                 .excludePathPatterns("/emit/action_event")
                 .excludePathPatterns("/emit/count_event")
                 .excludePathPatterns("/emit/req_event")
