@@ -31,7 +31,6 @@ public class UpdateProjectInfoController {
             @RequestParam("project_name") String project_name,
             @RequestParam(value = "description", required = false, defaultValue = "") String description,
             @RequestParam("url_online") String url_online,
-            @RequestParam("token") String token,
             HttpServletRequest request,
             HttpServletResponse response
     ) {

@@ -46,6 +46,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public int deleteProject(String project_id) {
+        return projectMapper.stopMonitoring(project_id);
+    }
+
+    @Override
     public int isHasActionEvent(String project_id) {
         List<EventEntry> actionEventList = projectMapper.getActionEvent(project_id);
 
