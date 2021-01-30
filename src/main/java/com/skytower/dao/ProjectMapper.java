@@ -22,6 +22,13 @@ public interface ProjectMapper {
     @Select("select * from project_table where project_id = #{project_id}")
     List<ProjectEntry> getProjectInfo(@Param("project_id") String project_id);
 
+    @Insert({"update project_table set project_name = #{e.project_name}, description = #{e.description}," +
+            "url_online = #{e.url_online} where project_id = #{e.project_id}"})
+    int updateProjectInfo(@Param("e") ProjectEntry e);
+
+    @Insert({"update project_table set is_monitoring = 0 where project_id = #{e.project_id}"})
+    int stopMonitoring(String project_id);
+
     @Select("select * from event_table where project_id = #{project_id} and type = 'action'")
     List<EventEntry> getActionEvent(@Param("project_id") String project_id);
 
