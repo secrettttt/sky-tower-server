@@ -83,6 +83,9 @@ public class ErrorInfo {
 
         errNoMap.put("project does not exist", 401);
         errMessageMap.put("project does not exist", "project does not exist.");
+
+        errNoMap.put("updateProjectInfo error", 501);
+        errMessageMap.put("updateProjectInfo error", "updateProjectInfo error.");
     }
 
     public static int getErrNo(String key) {

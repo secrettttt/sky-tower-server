@@ -10,6 +10,9 @@ public interface ProjectService {
 
     List<ProjectEntry> getProjectInfo(String project_id);
 
+    int updateProjectInfo(String project_id, String project_name, String description,
+                      String url_online);
+
     int isHasActionEvent(String project_id);
 
     int isHasCountEvent(String project_id);

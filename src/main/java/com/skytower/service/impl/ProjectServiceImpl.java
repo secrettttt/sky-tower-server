@@ -35,6 +35,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public int updateProjectInfo(String project_id, String project_name, String description,
+                          String url_online) {
+        ProjectEntry e = new ProjectEntry();
+        e.setProject_id(Integer.valueOf(project_id));
+        e.setProject_name(project_name);
+        e.setDescription(description);
+        e.setUrl_online(url_online);
+        return projectMapper.updateProjectInfo(e);
+    }
+
+    @Override
     public int isHasActionEvent(String project_id) {
         List<EventEntry> actionEventList = projectMapper.getActionEvent(project_id);
 
