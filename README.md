@@ -30,6 +30,7 @@
     - 提交体验反馈：http://101.200.197.197:8765/report_feedback
     - 获取用户的项目列表：http://101.200.197.197:8765/get/user_list
     - 创建新项目：http://101.200.197.197:8765/create/new_project
+    - 获取项目详情信息：http://101.200.197.197:8765/get/project_detail
     - 其他接口开发中...（上线后补充）
     
 ## 已创建的数据库、表、MOCK数据
@@ -122,5 +123,19 @@ CREATE TABLE project_table (
 alter table project_table convert to character set utf8;
 
 INSERT INTO `project_table`(`project_id`,`project_name`,`description`,`url_online`,`is_monitoring`, `create_time`, `user_id`) VALUES (100111, 'cat的个人博客', 'cat的个人心情随笔', 'https://www.hahaha123456.com', 1, 1611562074950, '10008800');
+
+/* 项目访问记录 */
+CREATE TABLE project_view_table (
+    `record_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `project_id` VARCHAR(25) NOT NULL,
+    `user_id` VARCHAR(25) NOT NULL,
+    `view_time` BIGINT NOT NULL,
+    PRIMARY KEY (`record_id`)
+); 
+
+alter table project_view_table convert to character set utf8;
+
+INSERT INTO `project_view_table`(`record_id`, `project_id`, `user_id`, `view_time`) 
+VALUES (0, '100112','0', 1611562074950);
 ```
 
