@@ -80,6 +80,9 @@ public class ErrorInfo {
 
         errNoMap.put("invalid argument", 401);
         errMessageMap.put("invalid argument", "invalid argument.");
+
+        errNoMap.put("project does not exist", 401);
+        errMessageMap.put("project does not exist", "project does not exist.");
     }
 
     public static int getErrNo(String key) {

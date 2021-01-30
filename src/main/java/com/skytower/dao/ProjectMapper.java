@@ -1,5 +1,6 @@
 package com.skytower.dao;
 
+import com.skytower.entry.EventEntry;
 import com.skytower.entry.ProjectEntry;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,4 +18,16 @@ public interface ProjectMapper {
     @Insert({"insert into project_table(user_id, project_name, description, url_online, is_monitoring, create_time) " +
             "values('${e.user_id}', '${e.project_name}', '${e.description}', '${e.url_online}', '${e.is_monitoring}', '${e.create_time}')"})
     int createNewProject(@Param("e") ProjectEntry e);
+
+    @Select("select * from project_table where project_id = #{project_id}")
+    List<ProjectEntry> getProjectInfo(@Param("project_id") String project_id);
+
+    @Select("select * from event_table where project_id = #{project_id} and type = 'action'")
+    List<EventEntry> getActionEvent(@Param("project_id") String project_id);
+
+    @Select("select * from event_table where project_id = #{project_id} and type = 'count'")
+    List<EventEntry> getCountEvent(@Param("project_id") String project_id);
+
+    @Select("select * from event_table where project_id = #{project_id} and (type = 'req' or type = 'resp')")
+    List<EventEntry> getHttpEvent(@Param("project_id") String project_id);
 }

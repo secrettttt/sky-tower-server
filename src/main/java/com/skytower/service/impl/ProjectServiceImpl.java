@@ -1,10 +1,14 @@
 package com.skytower.service.impl;
 
 import com.skytower.dao.ProjectMapper;
+import com.skytower.entry.EventEntry;
 import com.skytower.entry.ProjectEntry;
+import com.skytower.service.EventService;
 import com.skytower.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -24,4 +28,40 @@ public class ProjectServiceImpl implements ProjectService {
         e.setCreate_time(create_time);
         return projectMapper.createNewProject(e);
     }
+
+    @Override
+    public List<ProjectEntry> getProjectInfo(String project_id) {
+        return projectMapper.getProjectInfo(project_id);
+    }
+
+    @Override
+    public int isHasActionEvent(String project_id) {
+        List<EventEntry> actionEventList = projectMapper.getActionEvent(project_id);
+
+        if (actionEventList.size() > 0) {
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
+    public int isHasCountEvent(String project_id) {
+        List<EventEntry> countEventList = projectMapper.getCountEvent(project_id);
+
+        if (countEventList.size() > 0) {
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
+    public int isHasHttpEvent(String project_id) {
+        List<EventEntry> httpEventList = projectMapper.getHttpEvent(project_id);
+
+        if (httpEventList.size() > 0) {
+            return 1;
+        }
+        return 0;
+    }
+
 }
