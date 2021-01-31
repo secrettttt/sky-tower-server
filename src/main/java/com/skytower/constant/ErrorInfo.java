@@ -86,6 +86,9 @@ public class ErrorInfo {
 
         errNoMap.put("updateProjectInfo error", 501);
         errMessageMap.put("updateProjectInfo error", "updateProjectInfo error.");
+
+        errNoMap.put("get event list error", 501);
+        errMessageMap.put("get event list error", "get event list error.");
     }
 
     public static int getErrNo(String key) {

@@ -130,14 +130,14 @@ INSERT INTO `project_table`(`project_id`,`project_name`,`description`,`url_onlin
 CREATE TABLE project_view_table (
     `record_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `project_id` VARCHAR(25) NOT NULL,
-    `user_id` VARCHAR(25) NOT NULL,
+    `uid` VARCHAR(25) NOT NULL,
     `view_time` BIGINT NOT NULL,
     PRIMARY KEY (`record_id`)
 ); 
 
 alter table project_view_table convert to character set utf8;
 
-INSERT INTO `project_view_table`(`record_id`, `project_id`, `user_id`, `view_time`) 
+INSERT INTO `project_view_table`(`record_id`, `project_id`, `uid`, `view_time`) 
 VALUES (0, '100112','0', 1611562074950);
 ```
 
