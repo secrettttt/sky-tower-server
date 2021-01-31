@@ -2,6 +2,7 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitActionEventController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/ReportFeedbackController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/EventEntry.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/DeleteProjectController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitReqEventController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserListController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/ProjectEntry.java
@@ -21,6 +22,7 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/impl/UserServiceImpl.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/dao/ProjectViewMapper.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/impl/ProjectServiceImpl.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/UpdateProjectInfoController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/service/impl/FeedbackServiceImpl.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/ProjectViewEntry.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/UserEntry.java

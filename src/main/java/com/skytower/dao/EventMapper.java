@@ -1,7 +1,10 @@
 package com.skytower.dao;
 
+import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.EventEntry;
 import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 
 @Mapper
@@ -29,4 +32,11 @@ public interface EventMapper {
             "'${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
     int createRespEvent(@Param("e") EventEntry e);
 
+    @Select("select event, COUNT(*) as count from event_table where project_id = #{project_id} and type = 'count' group by event")
+    List<CountEventGroupEntry> getAllCountEvent(@Param("project_id") String project_id);
+
+    @Select("select event, COUNT(*) as count from event_table where project_id = #{project_id} " +
+            "and type = 'count' and time between #{start_time} and #{end_time} group by event")
+    List<CountEventGroupEntry> getCountEventByTime(@Param("project_id") String project_id,
+                            @Param("start_time") long start_time, @Param("end_time") long end_time);
 }

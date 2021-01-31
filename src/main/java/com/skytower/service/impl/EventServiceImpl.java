@@ -1,10 +1,13 @@
 package com.skytower.service.impl;
 
 import com.skytower.dao.EventMapper;
+import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.EventEntry;
 import com.skytower.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -72,6 +75,15 @@ public class EventServiceImpl implements EventService {
         e.setProjectId(pid);
         e.setUid(uid);
         return eventMapper.createRespEvent(e);
+    }
+
+    @Override
+    public List<CountEventGroupEntry> getCountEventList(String project_id, long start_time, long end_time) {
+        if (start_time == 0 && end_time == 0) {
+           return eventMapper.getAllCountEvent(project_id);
+        } else {
+            return eventMapper.getCountEventByTime(project_id, start_time, end_time);
+        }
     }
 
 }
