@@ -48,7 +48,7 @@ public interface EventMapper {
             "<if test = 'type.length() != 0'> and type = #{type} </if>" +
             "<if test = 'type.length() == 0'> and (type = 'req' or type = 'resp') </if>" +
             "<if test = 'is_success!=2'> and is_success = #{is_success} </if>" +
-            "<if test = 'api.length() != 0'> and api like #{api} </if> " +
+            "<if test = 'api.length() != 0'> and api like CONCAT('%', #{api}, '%') </if> " +
             "order by time desc " +
             "limit 300 " +
             "</script> ")
