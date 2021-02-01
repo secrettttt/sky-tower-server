@@ -1,7 +1,7 @@
 package com.skytower.service;
 
 import com.skytower.entry.CountEventGroupEntry;
-import org.json.JSONException;
+import com.skytower.entry.EventEntry;
 
 import java.util.List;
 
@@ -20,4 +20,6 @@ public interface EventService {
             String type, long time, String pid, String uid);
 
     List<CountEventGroupEntry> getCountEventList(String project_id, long start_time, long end_time);
+
+    List<EventEntry> getHttpEventList(String uid, String api, String type, int is_success);
 }

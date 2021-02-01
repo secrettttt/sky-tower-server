@@ -3,10 +3,12 @@ package com.skytower.service.impl;
 import com.skytower.dao.EventMapper;
 import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.EventEntry;
+import com.skytower.entry.EventTableEntry;
 import com.skytower.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -86,4 +88,24 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    @Override
+    public List<EventEntry> getHttpEventList(String uid, String api, String type, int is_success) {
+       List<EventTableEntry> tempList = eventMapper.getHttpEventList(uid, api, type, is_success);
+
+       List<EventEntry> res = new ArrayList<>();
+
+       for (int i = 0; i < tempList.size(); i++) {
+           EventEntry resItem = new EventEntry();
+           resItem.setTime(tempList.get(i).getTime());
+           resItem.setUid(tempList.get(i).getUid());
+           resItem.setApi(tempList.get(i).getApi());
+           resItem.setType(tempList.get(i).getType());
+           resItem.setIsSuccess(tempList.get(i).getIs_success());
+           resItem.setQuery(tempList.get(i).getQuery());
+           resItem.setRequestBody(tempList.get(i).getRequest_body());
+           resItem.setResp(tempList.get(i).getResp());
+           res.add(resItem);
+       }
+       return res;
+    }
 }
