@@ -2,7 +2,6 @@ package com.skytower.controller;
 
 import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.ProjectEntry;
-import com.skytower.entry.UserEntry;
 import com.skytower.service.EventService;
 import com.skytower.service.ProjectService;
 import org.json.JSONArray;

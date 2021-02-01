@@ -1,9 +1,7 @@
 package com.skytower.controller;
 
 import com.skytower.entry.ProjectEntry;
-import com.skytower.entry.UserEntry;
 import com.skytower.service.ProjectService;
-import com.skytower.util.JwtUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
