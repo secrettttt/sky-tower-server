@@ -5,6 +5,7 @@ import com.skytower.entry.EventEntry;
 import com.skytower.entry.EventTableEntry;
 import org.apache.ibatis.annotations.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,6 +34,36 @@ public interface EventMapper {
             "'${e.type}', '${e.time}', '${e.projectId}', '${e.uid}')"})
     int createRespEvent(@Param("e") EventEntry e);
 
+
+    @Select("<script>" +
+            "select * from event_table " +
+            "where type = 'action' and project_id = #{project_id} and time between #{start_time} and #{end_time} " +
+            "<if test = 'event.length() != 0'> and event like CONCAT('%', #{event}, '%') </if>" +
+            "<if test = 'location.length() != 0'> and location like CONCAT('%', #{location}, '%') </if>" +
+            "<if test = 'device_brand.length() != 0'> and device_brand like CONCAT('%', #{device_brand}, '%') </if>" +
+            "<if test = 'app_version.length() != 0'> and app_version like CONCAT('%', #{app_version}, '%') </if>" +
+            "<if test = 'system_version.length() != 0'> and system_version like CONCAT('%', #{system_version}, '%') </if>" +
+            "<if test = 'ip_address.length() != 0'> and ip_address like CONCAT('%', #{ip_address}, '%') </if>" +
+//            "<if test = 'client.size() != 0'> and client in (" +
+//                "<foreach collection='client' item='client' index='index' separator=',' >" +
+//                    "#{client}" +
+//                "</foreach>" +
+//            ")</if>" +
+            "order by time desc " +
+            "limit 500 " +
+            "</script> ")
+    List<EventTableEntry> getActionEventList(@Param("project_id") String project_id,
+                                             @Param("start_time") long start_time,
+                                             @Param("end_time") long end_time,
+                                             @Param("event") String event,
+                                             @Param("location") String location,
+                                             @Param("device_brand") String device_brand,
+                                             @Param("app_version") String app_version,
+                                             @Param("system_version") String system_version,
+                                             @Param("client") ArrayList<String> client,
+                                             @Param("net_type") ArrayList<String> net_type,
+                                             @Param("ip_address") String ip_address);
+
     @Select("select event, COUNT(*) as count from event_table where project_id = #{project_id} and type = 'count' group by event")
     List<CountEventGroupEntry> getAllCountEvent(@Param("project_id") String project_id);
 
@@ -52,5 +83,8 @@ public interface EventMapper {
             "order by time desc " +
             "limit 300 " +
             "</script> ")
-    List<EventTableEntry> getHttpEventList(String uid, String api, String type, int is_success);
+    List<EventTableEntry> getHttpEventList(@Param("uid") String uid,
+                                           @Param("api") String api,
+                                           @Param("type") String type,
+                                           @Param("is_success") int is_success);
 }
