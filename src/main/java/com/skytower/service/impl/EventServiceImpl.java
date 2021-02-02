@@ -80,6 +80,15 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public List<EventTableEntry> getActionEventList(String project_id, long start_time, long end_time,
+                                                        String event, String location, String device_brand,
+                                                        String app_version, String system_version, ArrayList<String> client,
+                                                        ArrayList<String> net_type, String ip_address) {
+        return eventMapper.getActionEventList(project_id, start_time, end_time, event, location, device_brand,
+                app_version, system_version, client, net_type, ip_address);
+    }
+
+    @Override
     public List<CountEventGroupEntry> getCountEventList(String project_id, long start_time, long end_time) {
         if (start_time == 0 && end_time == 0) {
            return eventMapper.getAllCountEvent(project_id);
