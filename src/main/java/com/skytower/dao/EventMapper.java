@@ -44,11 +44,16 @@ public interface EventMapper {
             "<if test = 'app_version.length() != 0'> and app_version like CONCAT('%', #{app_version}, '%') </if>" +
             "<if test = 'system_version.length() != 0'> and system_version like CONCAT('%', #{system_version}, '%') </if>" +
             "<if test = 'ip_address.length() != 0'> and ip_address like CONCAT('%', #{ip_address}, '%') </if>" +
-//            "<if test = 'client.size() != 0'> and client in (" +
-//                "<foreach collection='client' item='client' index='index' separator=',' >" +
-//                    "#{client}" +
-//                "</foreach>" +
-//            ")</if>" +
+            "<if test = 'client != null'> and client in (" +
+                "<foreach collection='client' item='clientItem' index='index' separator=',' >" +
+                    "#{clientItem}" +
+                "</foreach>" +
+            ")</if>" +
+            "<if test = 'net_type != null'> and net_type in (" +
+                "<foreach collection='net_type' item='netTypeItem' index='index' separator=',' >" +
+                    "#{netTypeItem}" +
+                "</foreach>" +
+            ")</if>" +
             "order by time desc " +
             "limit 500 " +
             "</script> ")
