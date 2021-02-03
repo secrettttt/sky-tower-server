@@ -45,6 +45,10 @@ public class StringUtil {
             sb.deleteCharAt(right);
         }
 
+        if (sb.toString().equals("")) {
+            return null;
+        }
+
         ArrayList<String> res = new ArrayList<String>(Arrays.asList(sb.toString().split(",")));
 
         return res;
