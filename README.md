@@ -33,6 +33,7 @@
     - 获取项目详情信息：http://101.200.197.197:8765/get/project_detail
     - 更改项目信息：http://101.200.197.197:8765/update/project_info
     - 删除项目（停止监控）：http://101.200.197.197:8765/delete/project
+    - 获取用户行为事件：http://101.200.197.197:8765/get/list/action_event
     - 获取计数事件：http://101.200.197.197:8765/get/list/count_event
     - 获取请求与响应事件：http://101.200.197.197:8765/get/list/http_event
     - 其他接口开发中...（上线后补充）
