@@ -117,4 +117,12 @@ public class EventServiceImpl implements EventService {
        }
        return res;
     }
+
+    @Override
+    public List<EventTableEntry> getUserAllTypeEventList(String project_id, String uid, long start_time,
+                                             long end_time) {
+        List<EventTableEntry> res = eventMapper.getALLTypeEventList(project_id, uid, start_time, end_time);
+        System.out.println(res.size() + " || " + project_id + " || " + uid + " || ");
+        return eventMapper.getALLTypeEventList(project_id, uid, start_time, end_time);
+    }
 }
