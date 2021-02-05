@@ -92,4 +92,16 @@ public interface EventMapper {
                                            @Param("api") String api,
                                            @Param("type") String type,
                                            @Param("is_success") int is_success);
+
+    @Select("<script>" +
+            "select * from event_table where project_id = #{project_id} " +
+            " and time between #{start_time} and #{end_time} " +
+            " <if test = 'uid.length() != 0'> and uid = #{uid} </if> " +
+            " order by time desc " +
+            " limit 100 " +
+            "</script> ")
+    List<EventTableEntry> getALLTypeEventList(@Param("project_id") String project_id,
+                                         @Param("uid") String uid,
+                                         @Param("start_time") long start_time,
+                                         @Param("end_time") long end_time);
 }

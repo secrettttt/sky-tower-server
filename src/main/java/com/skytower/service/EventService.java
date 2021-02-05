@@ -29,4 +29,7 @@ public interface EventService {
     List<CountEventGroupEntry> getCountEventList(String project_id, long start_time, long end_time);
 
     List<EventEntry> getHttpEventList(String uid, String api, String type, int is_success);
+
+    List<EventTableEntry> getUserAllTypeEventList(String project_id, String uid, long start_time,
+                                             long end_time);
 }
