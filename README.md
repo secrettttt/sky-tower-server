@@ -36,6 +36,7 @@
     - 获取用户行为事件：http://101.200.197.197:8765/get/list/action_event
     - 获取计数事件：http://101.200.197.197:8765/get/list/count_event
     - 获取请求与响应事件：http://101.200.197.197:8765/get/list/http_event
+    - 获取所有类型事件：http://101.200.197.197:8765/get/list/user_all_type_event
     - 其他接口开发中...（上线后补充）
     
 ## 已创建的数据库、表、MOCK数据
