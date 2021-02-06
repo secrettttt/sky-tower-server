@@ -3,6 +3,7 @@ package com.skytower.dao;
 import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.EventEntry;
 import com.skytower.entry.EventTableEntry;
+import com.skytower.entry.LabelCountEntry;
 import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
@@ -104,4 +105,10 @@ public interface EventMapper {
                                          @Param("uid") String uid,
                                          @Param("start_time") long start_time,
                                          @Param("end_time") long end_time);
+
+
+    @Select("select ${label} as label, COUNT(*) as count from event_table where project_id = #{project_id} " +
+            " and type = 'action' group by ${label}")
+    List<LabelCountEntry> getCountListGroupByLabel(@Param("label") String label,
+                                                   @Param("project_id") String project_id);
 }

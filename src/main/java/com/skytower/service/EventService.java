@@ -1,5 +1,6 @@
 package com.skytower.service;
 
+import com.skytower.entry.ActionEventGroupEntry;
 import com.skytower.entry.CountEventGroupEntry;
 import com.skytower.entry.EventEntry;
 import com.skytower.entry.EventTableEntry;
@@ -32,4 +33,6 @@ public interface EventService {
 
     List<EventTableEntry> getUserAllTypeEventList(String project_id, String uid, long start_time,
                                              long end_time);
+
+    List<ActionEventGroupEntry> getActionEventFilter(String project_id);
 }
