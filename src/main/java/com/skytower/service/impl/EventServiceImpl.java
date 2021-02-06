@@ -1,9 +1,7 @@
 package com.skytower.service.impl;
 
 import com.skytower.dao.EventMapper;
-import com.skytower.entry.CountEventGroupEntry;
-import com.skytower.entry.EventEntry;
-import com.skytower.entry.EventTableEntry;
+import com.skytower.entry.*;
 import com.skytower.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,5 +122,23 @@ public class EventServiceImpl implements EventService {
         List<EventTableEntry> res = eventMapper.getALLTypeEventList(project_id, uid, start_time, end_time);
         System.out.println(res.size() + " || " + project_id + " || " + uid + " || ");
         return eventMapper.getALLTypeEventList(project_id, uid, start_time, end_time);
+    }
+
+    @Override
+    public List<ActionEventGroupEntry> getActionEventFilter(String project_id) {
+        List<ActionEventGroupEntry> actionEventGroup = new ArrayList<>();
+
+        final String[] paramsList = { "event", "location", "device_brand", "app_version",
+                "system_version", "client", "net_type", "ip_address" };
+
+        for (int i = 0; i < paramsList.length; i++) {
+            ActionEventGroupEntry param = new ActionEventGroupEntry();
+            List<LabelCountEntry> paramLabelCount = eventMapper.getCountListGroupByLabel(paramsList[i], project_id);
+            param.setKey(paramsList[i]);
+            param.setValue(paramLabelCount);
+            actionEventGroup.add(param);
+        }
+
+        return actionEventGroup;
     }
 }

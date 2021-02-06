@@ -4,6 +4,7 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/EventEntry.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/DeleteProjectController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetCountEventListController.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserAllTypeEventListController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/EventTableEntry.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitReqEventController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserListController.java
