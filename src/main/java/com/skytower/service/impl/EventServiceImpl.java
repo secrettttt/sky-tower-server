@@ -141,4 +141,10 @@ public class EventServiceImpl implements EventService {
 
         return actionEventGroup;
     }
+
+    @Override
+    public List<AjaxErrorRateListEntry> getAjaxErrorList(String project_id,
+                                                         long start_time, long end_time) {
+        return eventMapper.getAjaxErrorList(project_id, start_time, end_time);
+    }
 }
