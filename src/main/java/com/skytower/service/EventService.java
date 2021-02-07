@@ -1,9 +1,6 @@
 package com.skytower.service;
 
-import com.skytower.entry.ActionEventGroupEntry;
-import com.skytower.entry.CountEventGroupEntry;
-import com.skytower.entry.EventEntry;
-import com.skytower.entry.EventTableEntry;
+import com.skytower.entry.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,4 +32,6 @@ public interface EventService {
                                              long end_time);
 
     List<ActionEventGroupEntry> getActionEventFilter(String project_id);
+
+    List<AjaxErrorRateListEntry> getAjaxErrorList(String project_id, long start_time, long end_time);
 }

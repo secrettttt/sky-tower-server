@@ -1,9 +1,6 @@
 package com.skytower.dao;
 
-import com.skytower.entry.CountEventGroupEntry;
-import com.skytower.entry.EventEntry;
-import com.skytower.entry.EventTableEntry;
-import com.skytower.entry.LabelCountEntry;
+import com.skytower.entry.*;
 import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
@@ -111,4 +108,16 @@ public interface EventMapper {
             " and type = 'action' group by ${label}")
     List<LabelCountEntry> getCountListGroupByLabel(@Param("label") String label,
                                                    @Param("project_id") String project_id);
+
+    @Select("<script>" +
+            "select api, " +
+            "COUNT(if(is_success = 'true', true, NULL)) as success_count, " +
+            "COUNT(if(is_success = 'false', true, NULL)) as error_count " +
+            "from event_table where project_id = #{project_id} " +
+            "<if test = 'start_time != 0 and end_time != 0'> and time between #{start_time} and #{end_time} </if> " +
+            "and type = 'resp' group by api " +
+            "</script> ")
+    List<AjaxErrorRateListEntry> getAjaxErrorList(@Param("project_id") String project_id,
+                                                 @Param("start_time") long start_time,
+                                                 @Param("end_time") long end_time);
 }
