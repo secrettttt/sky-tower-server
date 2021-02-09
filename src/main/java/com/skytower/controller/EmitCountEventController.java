@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-public class EmitCountEventController{
+public class EmitCountEventController {
 
     @Autowired
     private EventService eventService;

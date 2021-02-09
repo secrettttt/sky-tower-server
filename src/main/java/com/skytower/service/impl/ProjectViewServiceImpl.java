@@ -23,4 +23,9 @@ public class ProjectViewServiceImpl implements ProjectViewService {
         }
         return 0;
     }
+
+    @Override
+    public int createRecord(String project_id, String uid, long view_time) {
+        return projectViewMapper.createRecord(project_id, uid, view_time);
+    }
 }
