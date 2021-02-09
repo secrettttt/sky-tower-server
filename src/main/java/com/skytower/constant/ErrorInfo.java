@@ -89,6 +89,9 @@ public class ErrorInfo {
 
         errNoMap.put("get event list error", 501);
         errMessageMap.put("get event list error", "get event list error.");
+
+        errNoMap.put("createRecord error", 401);
+        errMessageMap.put("createRecord error", "createRecord error.");
     }
 
     public static int getErrNo(String key) {

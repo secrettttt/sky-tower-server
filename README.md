@@ -18,6 +18,7 @@
 
 ## 接口
 - sky-tower-jssdk
+    - 上报用户访问记录：http://101.200.197.197:8765/emit/pv_uv_info
     - 发射用户行为信号：http://101.200.197.197:8765/emit/action_event
     - 发射技术信号：http://101.200.197.197:8765/emit/count_event
     - 上报请求数据：http://101.200.197.197:8765/emit/req_event
