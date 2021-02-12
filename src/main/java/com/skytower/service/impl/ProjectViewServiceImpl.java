@@ -2,6 +2,7 @@ package com.skytower.service.impl;
 
 import com.skytower.dao.ProjectViewMapper;
 import com.skytower.entry.ProjectViewEntry;
+import com.skytower.entry.PvUvEntry;
 import com.skytower.service.ProjectViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,11 @@ public class ProjectViewServiceImpl implements ProjectViewService {
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public List<PvUvEntry> getPvUvByTime(String project_id, long start_time, long end_time) {
+        return projectViewMapper.getPvUvByTime(project_id, start_time, end_time);
     }
 
     @Override
