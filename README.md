@@ -34,6 +34,8 @@
     - 获取项目详情信息：http://101.200.197.197:8765/get/project_detail
     - 更改项目信息：http://101.200.197.197:8765/update/project_info
     - 删除项目（停止监控）：http://101.200.197.197:8765/delete/project
+    - 获取pv、uv信息：http://101.200.197.197:8765/get/info/pv_uv
+    - 根据start_time和end_time获取范围内的pv、uv信息：http://101.200.197.197:8765/get/by_time/pv_uv
     - 获取用户行为事件：http://101.200.197.197:8765/get/list/action_event
     - 获取计数事件：http://101.200.197.197:8765/get/list/count_event
     - 获取请求与响应事件：http://101.200.197.197:8765/get/list/http_event
