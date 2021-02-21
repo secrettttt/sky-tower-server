@@ -42,8 +42,10 @@
     - 获取请求与响应事件：http://101.200.197.197:8765/get/list/http_event
     - 获取所有类型事件：http://101.200.197.197:8765/get/list/user_all_type_event
     - 获取用户行为事件所有查询条件：http://101.200.197.197:8765/get/filter/action_event
-    - 其他接口开发中...（上线后补充）
-    
+ - 图片上传接口：http://101.200.197.197:8765/image_upload
+    - 图片线上地址：http://101.200.197.197:8765/skytower/files/images/`${images_name}`.png
+    - 服务器图片资源存放地址：/home/root/sky-tower-server/images/
+    - 静态资源外网访问的请求路径匹配规则：/skytower/files/**
 ## 已创建的数据库、表、MOCK数据
 ```sql
 /* 事件表 */
