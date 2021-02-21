@@ -31,13 +31,12 @@ public class ImageUploadController {
         boolean fileIsEmpty = file.isEmpty();
 
         String statusMessage = fileIsEmpty ? "file is empty" : "success";
-
-        String fileName = fileIsEmpty ? file.getOriginalFilename() : "avatar" + new Date().getTime() + ".png";
-        String filePath = "static/images/upload/";
+        String fileName = "avatar_" + new Date().getTime() + ".png";
+        String filePath = "images/";
 
         try {
 
-            File path = new File(ResourceUtils.getURL("classpath:").getPath());
+            File path = new File(ResourceUtils.getURL("file:").getPath());
 
             File dest = new File(path.getAbsolutePath(), filePath + fileName);
 
@@ -48,7 +47,7 @@ public class ImageUploadController {
             file.transferTo(dest);
 
             respData.put("status", statusMessage);
-            respData.put("url", "http://101.200.197.197:8765/skytower/image/" + filePath + fileName);
+            respData.put("url", "http://101.200.197.197:8765/skytower/files/" + filePath + fileName);
         } catch (FileNotFoundException e) {
             return e.toString();
         } catch (JSONException e) {
