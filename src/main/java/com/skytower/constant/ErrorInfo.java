@@ -92,6 +92,9 @@ public class ErrorInfo {
 
         errNoMap.put("createRecord error", 401);
         errMessageMap.put("createRecord error", "createRecord error.");
+
+        errNoMap.put("file is empty", 400);
+        errMessageMap.put("file is empty", "file is empty.");
     }
 
     public static int getErrNo(String key) {

@@ -50,10 +50,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateUserInfo(String user_id, String username, String password,
+    public int updateUserInfo(String user_id, String avatar, String username, String password,
                                   String email, String phone_number) {
         UserEntry e = new UserEntry();
         e.setUser_id(user_id);
+        e.setAvatar(avatar);
         e.setUsername(username);
         e.setPassword(password);
         e.setEmail(email);
