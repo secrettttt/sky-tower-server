@@ -14,6 +14,7 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitPvUvInfoController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/UpdateProjectInfoController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/ProjectViewEntry.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetSimultaneousOnlineController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetProjectDetailController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/util/AccessControlAllowOrigin.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/UpdateUserInfoController.java
@@ -24,11 +25,13 @@
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/interceptor/JwtHandlerInterceptor.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/configurer/SkyTowerWebMvcConfigure.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/dao/EventMapper.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/ImageUploadController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitActionEventController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/ReportFeedbackController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/DeleteProjectController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserAllTypeEventListController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/ActionEventGroupEntry.java
+/Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetPvUvInfoController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/GetUserListController.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/entry/ProjectEntry.java
 /Users/lukuiyuan/Desktop/sky-tower/sky-tower-server/src/main/java/com/skytower/controller/EmitRespEventController.java
