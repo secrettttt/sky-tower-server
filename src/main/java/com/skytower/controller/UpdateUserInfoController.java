@@ -26,6 +26,7 @@ public class UpdateUserInfoController {
     @RequestMapping(value = "/update/user_info", method = RequestMethod.POST)
     public String updateUserInfo(
             @RequestParam("user_id") String user_id,
+            @RequestParam("avatar") String avatar,
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             @RequestParam("email") String email,
@@ -43,7 +44,7 @@ public class UpdateUserInfoController {
 
                 respData.put("status", "username does not exist");
             } else {
-                int status = userService.updateUserInfo(user_id, username, password,
+                int status = userService.updateUserInfo(user_id, avatar, username, password,
                         email, phone_number);
 
                 if (status > 0) {

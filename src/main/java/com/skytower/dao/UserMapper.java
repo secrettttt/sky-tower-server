@@ -20,7 +20,7 @@ public interface UserMapper {
     int createNewUser(@Param("e") UserEntry e);
 
     @Update("update user_table set username=#{e.username}, password=#{e.password}, email=#{e.email}," +
-            "phone_number=#{e.phone_number} where user_id=#{e.user_id}")
+            "phone_number=#{e.phone_number}, avatar=#{e.avatar} where user_id=#{e.user_id}")
     int updateUserInfo(@Param("e") UserEntry e);
 
     @Select("select * from user_table where user_id = #{user_id}")
